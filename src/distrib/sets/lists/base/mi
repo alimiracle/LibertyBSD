@@ -564,6 +564,7 @@
 ./usr/bin/tty
 ./usr/bin/ul
 ./usr/bin/uname
+./usr/bin/uname-obsd
 ./usr/bin/uncompress
 ./usr/bin/unexpand
 ./usr/bin/unifdef

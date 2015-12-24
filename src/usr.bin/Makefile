@@ -25,7 +25,7 @@ SUBDIR= apply arch at aucat audioctl awk banner \
 	sort spell split sqlite3 ssh stat su systat \
 	tail talk tcpbench tee telnet tftp tic time \
 	tmux top touch tput tr true tset tsort tty usbhidaction usbhidctl \
-	ul uname unexpand unifdef uniq units \
+	ul uname uname-obsd unexpand unifdef uniq units \
 	unvis users uudecode uuencode vacation vi vis vmstat w wall wc \
 	what which who whois write x99token xargs xinstall \
 	yacc yes
