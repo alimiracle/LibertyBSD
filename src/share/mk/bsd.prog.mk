@@ -1,8 +1,6 @@
-#	$OpenBSD: bsd.prog.mk,v 1.63 2014/04/23 18:24:23 ajacoutot Exp $
+#	$OpenBSD: bsd.prog.mk,v 1.68 2015/07/20 23:52:29 yasuoka Exp $
 #	$NetBSD: bsd.prog.mk,v 1.55 1996/04/08 21:19:26 jtc Exp $
 #	@(#)bsd.prog.mk	5.26 (Berkeley) 6/25/91
-
-#NOMAN=	1
 
 .if exists(${.CURDIR}/../Makefile.inc)
 .include "${.CURDIR}/../Makefile.inc"
@@ -12,8 +10,9 @@
 
 .SUFFIXES: .out .o .c .cc .cpp .C .cxx .y .l .s .8 .7 .6 .5 .4 .3 .2 .1 .0
 
-.if defined(LDSTATIC) || defined(NOPIE)
+.if (defined(LDSTATIC) && !defined(STATICPIE)) || defined(NOPIE)
 CFLAGS+=       ${NOPIE_FLAGS}
+CXXFLAGS+=     ${NOPIE_FLAGS}
 AFLAGS+=       ${NOPIE_FLAGS}
 LDFLAGS+=      ${NOPIE_LDFLAGS}
 .endif
@@ -43,6 +42,7 @@ LIBL?=		${DESTDIR}/usr/lib/libl.a
 LIBM?=		${DESTDIR}/usr/lib/libm.a
 LIBMENU?=	${DESTDIR}/usr/lib/libmenu.a
 LIBMENUW?=	${DESTDIR}/usr/lib/libmenuw.a
+LIBRADIUS?=	${DESTDIR}/usr/lib/libradius.a
 LIBOLDCURSES?=	${DESTDIR}/usr/lib/libocurses.a
 LIBOSSAUDIO?=	${DESTDIR}/usr/lib/libossaudio.a
 LIBPANEL?=	${DESTDIR}/usr/lib/libpanel.a
@@ -54,6 +54,7 @@ LIBRPCSVC?=	${DESTDIR}/usr/lib/librpcsvc.a
 LIBSKEY?=	${DESTDIR}/usr/lib/libskey.a
 LIBSNDIO?=	${DESTDIR}/usr/lib/libsndio.a
 LIBSSL?=	${DESTDIR}/usr/lib/libssl.a
+LIBTLS?=	${DESTDIR}/usr/lib/libtls.a
 LIBTERMCAP?=	${DESTDIR}/usr/lib/libtermcap.a
 LIBTERMLIB?=	${DESTDIR}/usr/lib/libtermlib.a
 LIBUSB?=	${DESTDIR}/usr/lib/libusbhid.a

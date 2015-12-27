@@ -1,7 +1,6 @@
-/Makefile/1.17/Mon Oct 18 17:11:29 2010//
-/Makefile.inc/1.2/Sat Feb  3 08:25:16 2001//
+/Makefile/1.18/Thu Oct  9 03:46:15 2014//TOPENBSD_5_8_BASE
+/Makefile.inc/1.2/Sat Feb  3 08:25:16 2001//TOPENBSD_5_8_BASE
 D/dict////
-D/lkm////
 D/locale////
 D/man////
 D/misc////

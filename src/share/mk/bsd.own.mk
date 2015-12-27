@@ -1,7 +1,5 @@
-#	$OpenBSD: bsd.own.mk,v 1.150 2014/04/22 14:42:53 reyk Exp $
+#	$OpenBSD: bsd.own.mk,v 1.170 2015/07/03 11:18:23 miod Exp $
 #	$NetBSD: bsd.own.mk,v 1.24 1996/04/13 02:08:09 thorpej Exp $
-
-NOMAN=	1
 
 # Host-specific overrides
 .if defined(MAKECONF) && exists(${MAKECONF})
@@ -20,13 +18,11 @@ YP?=		yes
 DEBUGLIBS?=	no
 
 GCC3_ARCH=m88k vax
-BINUTILS217_ARCH=hppa64 ia64
 
 # arm needs binutils-2.17, which still lacks W^X support
-# sparc has not been tried
-# m88k unknown
-# hppa64 unknown
-PIE_ARCH=alpha amd64 hppa i386 mips64 mips64el powerpc sh sparc64
+# gcc3 lacks PIE support
+PIE_ARCH=alpha amd64 hppa i386 mips64 mips64el powerpc sh sparc sparc64
+STATICPIE_ARCH=alpha amd64 hppa i386 mips64 mips64el powerpc sh sparc sparc64
 
 .for _arch in ${MACHINE_ARCH}
 .if !empty(GCC3_ARCH:M${_arch})
@@ -35,10 +31,8 @@ COMPILER_VERSION?=gcc3
 COMPILER_VERSION?=gcc4
 .endif
 
-.if !empty(BINUTILS217_ARCH:M${_arch})
-BINUTILS_VERSION=binutils-2.17
-.else
-BINUTILS_VERSION=binutils
+.if !empty(STATICPIE_ARCH:M${_arch})
+STATICPIE?=-pie
 .endif
 
 .if !empty(PIE_ARCH:M${_arch})
@@ -118,9 +112,7 @@ INSTALL_COPY?=	-c
 INSTALL_STRIP?=	-s
 .endif
 
-# This may be changed for _single filesystem_ configurations (such as
-# routers and other embedded systems); normal systems should leave it alone!
-STATIC?=	-static
+STATIC?=	-static ${STATICPIE}
 
 # Define SYS_INCLUDE to indicate whether you want symbolic links to the system
 # source (``symlinks''), or a separate copy (``copies''); (latter useful
@@ -145,7 +137,7 @@ ASPICFLAG=-KPIC
 .endif
 
 .if ${MACHINE_ARCH} == "alpha" || ${MACHINE_ARCH} == "powerpc" || \
-    ${MACHINE_ARCH} == "sparc64"
+    ${MACHINE_ARCH} == "sparc" || ${MACHINE_ARCH} == "sparc64"
 # big PIE
 DEFAULT_PIE_DEF=-DPIE_DEFAULT=2
 .else
