@@ -68,7 +68,7 @@ true)
 	sunos*)
 		linklibperl="-lperl"
 		;;
-	netbsd*|freebsd[234]*|openbsd*|dragonfly*|bitrig*)
+	netbsd*|freebsd[234]*|openbsd*|dragonfly*|bitrig*|libertybsd*)
 		linklibperl="-L. -lperl"
 		;;
 	interix*)

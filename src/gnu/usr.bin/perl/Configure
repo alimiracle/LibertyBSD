@@ -3392,6 +3392,9 @@ EOM
 			esac
 			$test -f /system/lib/libandroid.so && osname=linux-android
 			;;
+		libertybsd) osname=libertybsd
+				osvers="$3"
+			;;
 		MiNT)	osname=mint
 			;;
 		netbsd*) osname=netbsd
@@ -8552,7 +8555,7 @@ if "$useshrplib"; then
 	solaris)
 		xxx="-R $shrpdir"
 		;;
-	freebsd|mirbsd|netbsd|openbsd|interix|dragonfly|bitrig)
+	freebsd|mirbsd|netbsd|openbsd|interix|dragonfly|bitrig|libertybsd)
 		xxx="-Wl,-R$shrpdir"
 		;;
 	bsdos|linux|irix*|dec_osf|gnu*|haiku)
