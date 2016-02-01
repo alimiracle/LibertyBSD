@@ -104,12 +104,12 @@ perly.c perly.h: perly.y
 	-@true
 
 install: install.lib install.perl maninstall
-	-mkdir -p ${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-openbsd
+	-mkdir -p ${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-libertybsd
 	(cd ${DESTDIR}/usr/include; ${H2PH} \
-		-d ${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-openbsd \
+		-d ${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-libertybsd \
 		`find . -name '*.h'`; \
 		pax -rw `find . -type l \! -name '*.h' | sed 's/^..//'` \
-		${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-openbsd)
+		${DESTDIR}/usr/libdata/perl5/site_perl/${MACHINE_ARCH}-libertybsd)
 	-chmod -R a+rX ${DESTDIR}/usr/libdata/perl5
 
 install.perl:

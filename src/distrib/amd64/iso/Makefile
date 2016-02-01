@@ -86,9 +86,9 @@ ${CDROM}: ${BASE} ${XBASE}
 
 	mkhybrid -a -R -T -L -l -d -D -N -o ${.OBJDIR}/${CDROM} -v -v \
 	    -A "LibertyBSD ${OSREV} ${MACHINE} Install CD" \
-	    -P "Copyright (c) `date +%Y` Theo de Raadt, The OpenBSD project" \
-	    -p "Theo de Raadt <deraadt@openbsd.org>" \
-	    -V "LibertyBSD/${MACHINE}   ${OSREV} Install CD" \
+	    -P "Copyright (c) `date +%Y` Riley Baird, Ali Abdul Ghani" \
+	    -p "Riley Baird <riley@openmailbox.org>" \
+	    -V "LibertyBSD/${MACHINE} ${OSREV} Install CD" \
 	    -b ${OSREV}/${MACHINE}/cdbr -c ${OSREV}/${MACHINE}/boot.catalog \
 	    ${.OBJDIR}/cd-dir
 

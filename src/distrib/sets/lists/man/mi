@@ -116,7 +116,6 @@
 ./usr/share/man/man1/fstat.1
 ./usr/share/man/man1/ftp.1
 ./usr/share/man/man1/fuser.1
-./usr/share/man/man1/fw_update.1
 ./usr/share/man/man1/gencat.1
 ./usr/share/man/man1/getcap.1
 ./usr/share/man/man1/getconf.1
@@ -2346,7 +2345,6 @@
 ./usr/share/man/man8/aviion/MAKEDEV.8
 ./usr/share/man/man8/aviion/a2coff.8
 ./usr/share/man/man8/aviion/installboot.8
-./usr/share/man/man8/aviion/vdmtool.8
 ./usr/share/man/man8/badsect.8
 ./usr/share/man/man8/bgpctl.8
 ./usr/share/man/man8/bgpd.8
